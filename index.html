@@ -20,7 +20,7 @@
   <body>
     <!-- jQuery -->
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
       integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
       crossorigin="anonymous"
     ></script>
@@ -62,7 +62,7 @@
 
     <!-- Page contents.. -->
     <header class="page-header header container-fluid">
-      <div class="d-flex justify-content-center" style="margin-top: 30px;">
+      <div class="d-flex justify-content-center" style="margin-top: 60px;">
         <!-- Canvas object -->
         <!-- Mainly where the app functions -->
         <canvas class="cuma-generated-message">
@@ -79,10 +79,33 @@
         >
           Generate
         </button>
-        <button type="button" class="btn btn-success btn-lg">
-          Save
-        </button>
+        <a id="download" download="triangle.png">
+          <button
+            type="button"
+            class="btn btn-success btn-lg"
+            onclick="saveImg()"
+          >
+            Save
+          </button>
+        </a>
       </div>
+
+      <!-- FOOTER REGION -->
+      <div class="footer fixed-bottom">
+        <footer class="page-footer">
+          <div class="container">
+            <div class="col-xs-1 center-block">
+              <p>
+                2020 Mehmet's Cuma Message Generator™. You can mail me for
+                questions, suggestions and further inquiries:
+                <a href="mailto:mehmetccm@gmail.com">mehmetccm@gmail.com</a>
+              </p>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <!-- FOOTER ENDS HERE AMKQQQ.. -->
+
       <!-- This should be added here -->
       <!-- Because the Canvas object should be initialized -->
       <!-- Before the controlling Javascript!! -->

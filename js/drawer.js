@@ -10,16 +10,23 @@ const height = (canvas.height = window.innerHeight / 2);
 const ctx = canvas.getContext("2d");
 // text settings for the context
 ctx.textAlign = "center";
-
 /** TODO : add randomness */
+let fontSize = 60;
+let fontName = "px Calibri";
+
 ctx.fillStyle = "red";
-ctx.font = "60px Calibri";
 ctx.shadowBlur = 10;
 ctx.shadowColor = "green";
 
 /**
  * Some auxiliary functions
  */
+function getFont() {
+  let ratio = fontSize / width; // calc ratio
+  var size = canvas.width * ratio; // get font size based on current width
+  return (size | 0) + fontName; // set font
+}
+
 function drawImg(imgSrc, imgText) {
   // first and foremost, clear
   clearCanvas();
@@ -50,7 +57,8 @@ function drawImg(imgSrc, imgText) {
 
 function draw() {
   let imgSrc = "resources/generator/bear_logo.jpg"; // ToDo : change
-  let imgText = "Hayırlı Cumalar"; // ToDo : change
+  let imgText =
+    "İlahi Yarabbi son nefesimde kendime malik olmadığım zaman bu duamı sana emanet ederim. Allah Cumanızı Kabul Etsin."; // ToDo : change
 
   drawImg(imgSrc, imgText);
 }
