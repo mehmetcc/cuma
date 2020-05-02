@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Mehmet's Cuma Message Generator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Stylings -->
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <!-- Local Javascript -->
+    <!-- Currently there are none so add them accordingly!!! -->
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
+      integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Script embeddings end here.. -->
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md">
+      <img src="resources/logo_resized.png" alt="Logo" />
+      <button
+        class="navbar-toggler navbar-dark"
+        type="button"
+        data-toggle="collapse"
+        data-target="#main-navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="main-navigation">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <span style="font-size: 1.2em;"
+              ><a class="nav-link" href="#">About</a></span
+            >
+          </li>
+          <li class="nav-item">
+            <span style="font-size: 1.2em;"
+              ><a class="nav-link" href="http://mehmetcan.io/">Contact</a></span
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Navbar ends here.. -->
+
+    <!-- Page contents.. -->
+    <header class="page-header header container-fluid">
+      <div class="d-flex justify-content-center" style="margin-top: 30px;">
+        <!-- Canvas object -->
+        <!-- Mainly where the app functions -->
+        <canvas class="cuma-generated-message">
+          <input type="file" id="file_input" />
+        </canvas>
+      </div>
+      <!-- Canvas object ends here.. -->
+      <!-- Buttons Generate and Save -->
+      <div class="d-flex justify-content-center" style="margin-top: 30px;">
+        <button
+          type="button"
+          class="btn btn-primary btn-lg mr-2"
+          onclick="draw();"
+        >
+          Generate
+        </button>
+        <button
+          type="button"
+          class="btn btn-success btn-lg"
+          onclick="saveImg()"
+        >
+          Save
+        </button>
+      </div>
+      <!-- This should be added here -->
+      <!-- Because the Canvas object should be initialized -->
+      <!-- Before the controlling Javascript!! -->
+      <script src="js/drawer.js"></script>
+    </header>
+  </body>
+</html>
