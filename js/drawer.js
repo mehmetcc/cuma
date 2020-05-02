@@ -90,7 +90,7 @@ function saveImg() {
     .toDataURL("image/png")
     .replace("image/png", "image/octet-stream");
   download.setAttribute("href", image);
-  //download.setAttribute("download","archive.png");
+  download.setAttribute("download", "archive.png");
 }
 
 /**
