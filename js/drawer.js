@@ -87,8 +87,7 @@ function saveImg() {
   $.getScript("reimg.js", function () {
     // script is now loaded and executed.
     // put your dependent JS here.
-    let png = ReImg.fromCanvas(canvas).toPng();
-    $.fileDownload(png);
+    ReImg.fromCanvas(canvas).toPng()
   });
 }
 
