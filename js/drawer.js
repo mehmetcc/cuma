@@ -84,11 +84,13 @@ function clearCanvas() {
 }
 
 function saveImg() {
-  $.getScript("reimg.js", function () {
-    // script is now loaded and executed.
-    // put your dependent JS here.
-    ReImg.fromCanvas(canvas).toPng()
-  });
+  let download = document.getElementById("download");
+  let image = document
+    .querySelector(".cuma-generated-message")
+    .toDataURL("image/png")
+    .replace("image/png", "image/octet-stream");
+  download.setAttribute("href", image);
+  //download.setAttribute("download","archive.png");
 }
 
 /**
