@@ -28,10 +28,3 @@ body {
 .navbar-collapse {
   justify-content: flex-end;
 }
-
-/*--- footer ---*/
-.page-footer {
-  background-color: #222;
-  color: #ccc;
-  padding: 40px 0 30px;
-}
