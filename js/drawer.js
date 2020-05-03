@@ -129,4 +129,4 @@ function getRandomArbitrary(min, max) {
  * This is basically the scripting part
  */
 let landingSrc = "resources/canvas_landing.jpg";
-drawImg(landingSrc);
+drawInFullSize(landingSrc);
