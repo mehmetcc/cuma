@@ -6,11 +6,16 @@
 let messages = [];
 let imgpaths = [];
 
+let colors = [];
+
 $.getJSON("generator/messages.json", function (json) {
   messages = json;
 });
 $.getJSON("generator/imgpath.json", function (json) {
   imgpaths = json;
+});
+$.getJSON("generator/colors.json", function (json) {
+  colors = json;
 });
 
 let canvas = document.querySelector(".cuma-generated-message");
@@ -22,13 +27,12 @@ const ctx = canvas.getContext("2d");
 // text settings for the context
 ctx.textAlign = "center";
 /** TODO : add randomness */
+/**
 let fontSize = 30;
 let fontName = "px Calibri";
-ctx.font = fontSize + fontName;
 
-ctx.fillStyle = "red";
-ctx.shadowBlur = 10;
-ctx.shadowColor = "green";
+ctx.font = fontSize + fontName;
+*/
 
 /**
  * Some auxiliary functions
@@ -58,6 +62,9 @@ function drawImg(imgSrc, imgText) {
     /** RESIZED IMAGE IS DRAWN!!!!!! */
 
     /** GENERATE TEXT */
+    ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+    ctx.shadowBlur = getRandomArbitrary(10, 20);
+    ctx.shadowColor = colors[Math.floor(Math.random() * colors.length)];
     ctx.fillText(imgText, width / 2, height - height / 4);
     //fillTextMultiLine(ctx, imgText, width / 2, height - height / 4);
   };
@@ -126,6 +133,10 @@ function saveImg() {
     .replace("image/png", "image/octet-stream");
   download.setAttribute("href", image);
   download.setAttribute("download", "archive.png");
+}
+
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
 }
 
 /**
