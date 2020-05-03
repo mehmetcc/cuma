@@ -84,7 +84,7 @@ function fillTextMultiLine(ctx, text, x, y) {
 }
 
 function draw() {
-  let imgSrc = imgpaths[Math.floor(Math.random() * imgpaths.length)]; // ToDo : change
+  let imgSrc = imgpaths[Math.floor(Math.random() * imgpaths.length)];
   let imgText = messages[Math.floor(Math.random() * messages.length)];
 
   drawImg(imgSrc, imgText);
