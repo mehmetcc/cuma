@@ -63,7 +63,7 @@ function drawImg(imgSrc, imgText) {
 
 function draw() {
   let imgSrc = "generator/img/bear_logo.jpg"; // ToDo : change
-  let imgText = ""; // ToDo : change
+  let imgText = messages[Math.floor(Math.random() * array.length)];; // ToDo : change
 
   drawImg(imgSrc, imgText);
 }
