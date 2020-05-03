@@ -18,7 +18,7 @@ const ctx = canvas.getContext("2d");
 // text settings for the context
 ctx.textAlign = "center";
 /** TODO : add randomness */
-let fontSize = 30;
+let fontSize = 60;
 let fontName = "px Calibri";
 ctx.font = fontSize + fontName;
 
@@ -71,7 +71,8 @@ function fillTextMultiLine(ctx, text, x, y) {
 
 function draw() {
   let imgSrc = "generator/img/bear_logo.jpg"; // ToDo : change
-  let imgText = messages[Math.floor(Math.random() * messages.length)]; // ToDo : change
+  // let imgText = messages[Math.floor(Math.random() * messages.length)]; // ToDo : change
+  let imgText = "Bazı müminler cennete hasret yaşar. Bazı müminler de vardır ki cennet onları hasretle bekler. Cennetin hasretle beklediği müminlerden olmak duasıyla, hayırlı cumalar.";
 
   drawImg(imgSrc, imgText);
 }
