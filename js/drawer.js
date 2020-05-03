@@ -45,7 +45,7 @@ function drawImg(imgSrc, imgText) {
   // draw image
   image.onload = function () {
     /** DRAW IMAGE FIRST */
-    draw(imgSrc);
+    drawInFullSize(imgSrc);
     /** RESIZED IMAGE IS DRAWN!!!!!! */
 
     /** GENERATE TEXT */
@@ -84,7 +84,7 @@ function draw() {
   drawImg(imgSrc, imgText);
 }
 
-function draw(imgSrc) {
+function drawInFullSize(imgSrc) {
   // open image
   let image = new Image();
   image.src = imgSrc;
