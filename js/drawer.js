@@ -71,8 +71,7 @@ function fillTextMultiLine(ctx, text, x, y) {
 
 function draw() {
   let imgSrc = "generator/img/bear_logo.jpg"; // ToDo : change
-  // let imgText = messages[Math.floor(Math.random() * messages.length)]; // ToDo : change
-  let imgText = "Bazı müminler cennete hasret yaşar. Bazı müminler de vardır ki cennet onları hasretle bekler. Cennetin hasretle beklediği müminlerden olmak duasıyla, hayırlı cumalar.";
+  let imgText = messages[Math.floor(Math.random() * messages.length)];
 
   drawImg(imgSrc, imgText);
 }
