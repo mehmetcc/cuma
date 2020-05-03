@@ -2,13 +2,6 @@
  * DEFINITIONS
  */
 
-/** Include json files at first */
-let messages = [];
-
-$.getJSON("generator/messages.json", function (json) {
-  messages = json;
-});
-
 let canvas = document.querySelector(".cuma-generated-message");
 // set height and width
 const width = (canvas.width = window.innerWidth / 2);
@@ -56,7 +49,26 @@ function drawImg(imgSrc, imgText) {
     /** GENERATE TEXT */
     //ctx.fillText(imgText, width / 2, height - height / 4);
     fillTextMultiLine(ctx, imgText, width / 2, height - height / 4);
+    //wrapText(ctx, imgText, imgText, (canvas.width - 400) / 2, 60, 25);
   };
+}
+function wrapText(context, text, x, y, maxWidth, lineHeight) {
+  var words = text.split(" ");
+  var line = "";
+
+  for (var n = 0; n < words.length; n++) {
+    var testLine = line + words[n] + " ";
+    var metrics = context.measureText(testLine);
+    var testWidth = metrics.width;
+    if (testWidth > maxWidth && n > 0) {
+      context.fillText(line, x, y);
+      line = words[n] + " ";
+      y += lineHeight;
+    } else {
+      line = testLine;
+    }
+  }
+  context.fillText(line, x, y);
 }
 
 function fillTextMultiLine(ctx, text, x, y) {
@@ -81,7 +93,8 @@ function fillTextMultiLine(ctx, text, x, y) {
 
 function draw() {
   let imgSrc = "generator/img/bear_logo.jpg"; // ToDo : change
-  let imgText = messages[Math.floor(Math.random() * messages.length)];
+  let imgText =
+    "Bazı müminler cennete hasret yaşar. Bazı müminler de vardır ki cennet onları hasretle bekler. Cennetin hasretle beklediği müminlerden olmak duasıyla, hayırlı cumalar.";
 
   drawImg(imgSrc, imgText);
 }
