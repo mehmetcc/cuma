@@ -7,7 +7,7 @@ let messages = []
 
 $.getJSON("generator/messages.json", function(json) {
   messages = json;
-  console.log(messages);
+  alert(messages[0]);
 });
 
 
