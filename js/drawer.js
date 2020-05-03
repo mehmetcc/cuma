@@ -3,49 +3,11 @@
  */
 
 /** Include json files at first */
-let messages = [
-  "Hayırlı Cumalar",
-  "Cumanız mübarek olsun",
-  "Cumanız kutlu olsun",
-  "Cumanız hayrolsun, gönlünüz sevda dolsun",
-  "Hayırlı sağlıklı ve huzurlu Cuma'lar",
-  "Cuma şerifleriniz hayrolsun",
-  "İna we bimbarek be",
-  "İna we bi xêr be",
-  "Xeyirli Cümələr",
-  "Cümə Gününüz Mübarək",
-  "Jumma Mubarak",
-];
+let messages = [];
+let imgpaths = [];
 
-let imgpaths = [
-  "generator/img/a.jpeg",
-  "generator/img/b.jpeg",
-  "generator/img/c.jpeg",
-  "generator/img/d.jpeg",
-  "generator/img/e.jpeg",
-  "generator/img/f.jpeg",
-];
+let colors = [];
 
-let colors = [
-  "aliceblue",
-  "aqua",
-  "aquamarine",
-  "azure",
-  "bisque",
-  "black",
-  "blanchedalmond",
-  "blue",
-  "blueviolet",
-  "brown",
-  "burlywood",
-  "cadetblue",
-  "chartreuse",
-  "chocolate",
-  "coral",
-  "mediumvioletred",
-];
-
-/**
 $.getJSON("generator/messages.json", function (json) {
   messages = json;
 });
@@ -55,7 +17,7 @@ $.getJSON("generator/imgpath.json", function (json) {
 $.getJSON("generator/colors.json", function (json) {
   colors = json;
 });
- */
+
 let canvas = document.querySelector(".cuma-generated-message");
 // set height and width
 const width = (canvas.width = window.innerWidth / 2);
