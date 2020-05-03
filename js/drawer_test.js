@@ -46,7 +46,18 @@ function drawImg(imgSrc, imgText) {
   // draw image
   image.onload = function () {
     /** DRAW IMAGE FIRST */
-    drawImg(imgSrc);
+    var wrh = image.width / image.height;
+    var newWidth = canvas.width;
+    var newHeight = newWidth / wrh;
+    if (newHeight > canvas.height) {
+      newHeight = canvas.height;
+      newWidth = newHeight * wrh;
+    }
+    var xOffset = newWidth < canvas.width ? (canvas.width - newWidth) / 2 : 0;
+    var yOffset =
+      newHeight < canvas.height ? (canvas.height - newHeight) / 2 : 0;
+
+    ctx.drawImage(image, xOffset, yOffset, newWidth, newHeight);
     /** RESIZED IMAGE IS DRAWN!!!!!! */
 
     /** GENERATE TEXT */
@@ -82,7 +93,8 @@ function draw() {
   drawImg(imgSrc, imgText);
 }
 
-function drawImg(imgSrc) {
+function drawLanding() {
+  let imgSrc = "resources/canvas_landing.jpg";
   // open image
   let image = new Image();
   image.src = imgSrc;
@@ -122,5 +134,5 @@ function saveImg() {
 /**
  * This is basically the scripting part
  */
-let landingSrc = "resources/canvas_landing.jpg";
-drawImg(landingSrc);
+
+drawLanding();
