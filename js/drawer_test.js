@@ -2,6 +2,17 @@
  * DEFINITIONS
  */
 
+/** Include json files at first */
+let messages = [];
+let imgpaths = [];
+
+$.getJSON("generator/messages.json", function (json) {
+  messages = json;
+});
+$.getJSON("generator/imgpath.json", function (json) {
+  imgpaths = json;
+});
+
 let canvas = document.querySelector(".cuma-generated-message");
 // set height and width
 const width = (canvas.width = window.innerWidth / 2);
@@ -11,9 +22,12 @@ const ctx = canvas.getContext("2d");
 // text settings for the context
 ctx.textAlign = "center";
 /** TODO : add randomness */
-let fontSize = 60;
+/**
+let fontSize = 30;
 let fontName = "px Calibri";
+
 ctx.font = fontSize + fontName;
+*/
 
 ctx.fillStyle = "red";
 ctx.shadowBlur = 10;
@@ -47,28 +61,9 @@ function drawImg(imgSrc, imgText) {
     /** RESIZED IMAGE IS DRAWN!!!!!! */
 
     /** GENERATE TEXT */
-    //ctx.fillText(imgText, width / 2, height - height / 4);
-    fillTextMultiLine(ctx, imgText, width / 2, height - height / 4);
-    //wrapText(ctx, imgText, imgText, (canvas.width - 400) / 2, 60, 25);
+    ctx.fillText(imgText, width / 2, height - height / 4);
+    //fillTextMultiLine(ctx, imgText, width / 2, height - height / 4);
   };
-}
-function wrapText(context, text, x, y, maxWidth, lineHeight) {
-  var words = text.split(" ");
-  var line = "";
-
-  for (var n = 0; n < words.length; n++) {
-    var testLine = line + words[n] + " ";
-    var metrics = context.measureText(testLine);
-    var testWidth = metrics.width;
-    if (testWidth > maxWidth && n > 0) {
-      context.fillText(line, x, y);
-      line = words[n] + " ";
-      y += lineHeight;
-    } else {
-      line = testLine;
-    }
-  }
-  context.fillText(line, x, y);
 }
 
 function fillTextMultiLine(ctx, text, x, y) {
@@ -92,9 +87,8 @@ function fillTextMultiLine(ctx, text, x, y) {
 }
 
 function draw() {
-  let imgSrc = "generator/img/bear_logo.jpg"; // ToDo : change
-  let imgText =
-    "Bazı müminler cennete hasret yaşar. Bazı müminler de vardır ki cennet onları hasretle bekler. Cennetin hasretle beklediği müminlerden olmak duasıyla, hayırlı cumalar.";
+  let imgSrc = imgpaths[Math.floor(Math.random() * imgpaths.length)];
+  let imgText = messages[Math.floor(Math.random() * messages.length)];
 
   drawImg(imgSrc, imgText);
 }
