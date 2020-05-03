@@ -65,6 +65,7 @@ function fillTextMultiLine(ctx, text, x, y) {
   for (var i = 0; i < lines.length; ++i) {
     ctx.fillText(lines[i], x, y);
     y += lineHeight;
+    console.log(lines[i]);
   }
 }
 
