@@ -8,3 +8,4 @@ A current demo resides in: [cuma](http://mehmetcan.io/cuma/)
 [ ] Add support for different fonts  
 [ ] Add support for multiline texts  
 [ ] Add support for dynamic text sizing (currently fixed to 30pts)  
+[ ] Add more randomness in general (like different colours and different background images) 
