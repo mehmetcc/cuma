@@ -4,9 +4,13 @@
 
 /** Include json files at first */
 let messages = [];
+let imgpaths = [];
 
 $.getJSON("generator/messages.json", function (json) {
   messages = json;
+});
+$.getJSON("generator/imgpath.json", function (json) {
+  imgpaths = json;
 });
 
 let canvas = document.querySelector(".cuma-generated-message");
@@ -80,7 +84,7 @@ function fillTextMultiLine(ctx, text, x, y) {
 }
 
 function draw() {
-  let imgSrc = "generator/img/bear_logo.jpg"; // ToDo : change
+  let imgSrc = imgpaths[Math.floor(Math.random() * imgpaths.length)]; // ToDo : change
   let imgText = messages[Math.floor(Math.random() * messages.length)];
 
   drawImg(imgSrc, imgText);
