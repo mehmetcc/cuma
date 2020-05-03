@@ -5,8 +5,7 @@
 /** Include json files at first */
 let messages = [];
 
-
-$.getJSON("generator/messages.json", function(json) {
+$.getJSON("generator/messages.json", function (json) {
   messages = json;
 });
 
@@ -55,13 +54,23 @@ function drawImg(imgSrc, imgText) {
     /** RESIZED IMAGE IS DRAWN!!!!!! */
 
     /** GENERATE TEXT */
-    ctx.fillText(imgText, width / 2, height - height / 4);
+    //ctx.fillText(imgText, width / 2, height - height / 4);
+    fillTextMultiLine(ctx, imgText, width / 2, height - height / 4);
   };
+}
+
+function fillTextMultiLine(ctx, text, x, y) {
+  var lineHeight = ctx.measureText("M").width * 1.2;
+  var lines = text.split("\n");
+  for (var i = 0; i < lines.length; ++i) {
+    ctx.fillText(lines[i], x, y);
+    y += lineHeight;
+  }
 }
 
 function draw() {
   let imgSrc = "generator/img/bear_logo.jpg"; // ToDo : change
-  let imgText = messages[Math.floor(Math.random() * messages.length)];; // ToDo : change
+  let imgText = messages[Math.floor(Math.random() * messages.length)]; // ToDo : change
 
   drawImg(imgSrc, imgText);
 }
