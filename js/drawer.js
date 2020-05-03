@@ -27,12 +27,10 @@ const ctx = canvas.getContext("2d");
 // text settings for the context
 ctx.textAlign = "center";
 /** TODO : add randomness */
-/**
 let fontSize = 30;
 let fontName = "px Calibri";
 
 ctx.font = fontSize + fontName;
-*/
 
 /**
  * Some auxiliary functions
