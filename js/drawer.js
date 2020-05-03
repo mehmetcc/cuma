@@ -2,6 +2,15 @@
  * DEFINITIONS
  */
 
+/** Include json files at first */
+let messages = []
+
+$.getJSON("generator/messages.json", function(json) {
+  messages = json;
+  console.log(messages);
+});
+
+
 let canvas = document.querySelector(".cuma-generated-message");
 // set height and width
 const width = (canvas.width = window.innerWidth / 2);
@@ -11,8 +20,9 @@ const ctx = canvas.getContext("2d");
 // text settings for the context
 ctx.textAlign = "center";
 /** TODO : add randomness */
-let fontSize = 60;
+let fontSize = 100;
 let fontName = "px Calibri";
+ctx.font = fontSize + fontName;
 
 ctx.fillStyle = "red";
 ctx.shadowBlur = 10;
@@ -21,11 +31,6 @@ ctx.shadowColor = "green";
 /**
  * Some auxiliary functions
  */
-function getFont() {
-  let ratio = fontSize / width; // calc ratio
-  var size = canvas.width * ratio; // get font size based on current width
-  return (size | 0) + fontName; // set font
-}
 
 function drawImg(imgSrc, imgText) {
   // first and foremost, clear
@@ -56,9 +61,8 @@ function drawImg(imgSrc, imgText) {
 }
 
 function draw() {
-  let imgSrc = "resources/generator/bear_logo.jpg"; // ToDo : change
-  let imgText =
-    "İlahi Yarabbi son nefesimde kendime malik olmadığım zaman bu duamı sana emanet ederim. Allah Cumanızı Kabul Etsin."; // ToDo : change
+  let imgSrc = "generator/img/bear_logo.jpg"; // ToDo : change
+  let imgText = ""; // ToDo : change
 
   drawImg(imgSrc, imgText);
 }
