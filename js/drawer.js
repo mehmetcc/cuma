@@ -18,7 +18,7 @@ const ctx = canvas.getContext("2d");
 // text settings for the context
 ctx.textAlign = "center";
 /** TODO : add randomness */
-let fontSize = 60;
+let fontSize = 30;
 let fontName = "px Calibri";
 ctx.font = fontSize + fontName;
 
