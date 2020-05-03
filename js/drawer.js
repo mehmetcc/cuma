@@ -3,14 +3,12 @@
  */
 
 /** Include json files at first */
-let messages = []
+let messages = [];
+
 
 $.getJSON("generator/messages.json", function(json) {
   messages = json;
-  alert(json);
-  alert(messages[0]);
 });
-
 
 let canvas = document.querySelector(".cuma-generated-message");
 // set height and width
@@ -63,7 +61,7 @@ function drawImg(imgSrc, imgText) {
 
 function draw() {
   let imgSrc = "generator/img/bear_logo.jpg"; // ToDo : change
-  let imgText = messages[Math.floor(Math.random() * array.length)];; // ToDo : change
+  let imgText = messages[Math.floor(Math.random() * messages.length)];; // ToDo : change
 
   drawImg(imgSrc, imgText);
 }
