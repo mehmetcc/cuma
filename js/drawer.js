@@ -54,8 +54,8 @@ function drawImg(imgSrc, imgText) {
     /** RESIZED IMAGE IS DRAWN!!!!!! */
 
     /** GENERATE TEXT */
-    //ctx.fillText(imgText, width / 2, height - height / 4);
-    fillTextMultiLine(ctx, imgText, width / 2, height - height / 4);
+    ctx.fillText(imgText, width / 2, height - height / 4);
+    //fillTextMultiLine(ctx, imgText, width / 2, height - height / 4);
   };
 }
 
