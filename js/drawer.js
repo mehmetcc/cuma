@@ -62,8 +62,8 @@ function drawImg(imgSrc, imgText) {
     /** RESIZED IMAGE IS DRAWN!!!!!! */
 
     /** GENERATE TEXT */
-    ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
-    ctx.shadowBlur = getRandomArbitrary(10, 20);
+    ctx.fillStyle = "mediumvioletred";
+    ctx.shadowBlur = getRandomArbitrary(20, 30);
     ctx.shadowColor = colors[Math.floor(Math.random() * colors.length)];
     ctx.fillText(imgText, width / 2, height - height / 4);
     //fillTextMultiLine(ctx, imgText, width / 2, height - height / 4);
