@@ -45,18 +45,7 @@ function drawImg(imgSrc, imgText) {
   // draw image
   image.onload = function () {
     /** DRAW IMAGE FIRST */
-    var wrh = image.width / image.height;
-    var newWidth = canvas.width;
-    var newHeight = newWidth / wrh;
-    if (newHeight > canvas.height) {
-      newHeight = canvas.height;
-      newWidth = newHeight * wrh;
-    }
-    var xOffset = newWidth < canvas.width ? (canvas.width - newWidth) / 2 : 0;
-    var yOffset =
-      newHeight < canvas.height ? (canvas.height - newHeight) / 2 : 0;
-
-    ctx.drawImage(image, xOffset, yOffset, newWidth, newHeight);
+    draw(imgSrc);
     /** RESIZED IMAGE IS DRAWN!!!!!! */
 
     /** GENERATE TEXT */
@@ -95,8 +84,7 @@ function draw() {
   drawImg(imgSrc, imgText);
 }
 
-function drawLanding() {
-  let imgSrc = "resources/canvas_landing.jpg";
+function draw(imgSrc) {
   // open image
   let image = new Image();
   image.src = imgSrc;
@@ -140,5 +128,5 @@ function getRandomArbitrary(min, max) {
 /**
  * This is basically the scripting part
  */
-
-drawLanding();
+let landingSrc = "resources/canvas_landing.jpg";
+drawImg(landingSrc);
